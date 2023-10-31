@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: black;
+    color: $white;
+    font-family: $crimson;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#__nuxt {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapAll {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    flex: 1;
+    background-color: $black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+}
+
+.wrapContent {
+    width: 100%;
+    flex-grow: 1;
+}
+
+.wrapper {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.text {
+    > * {
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
