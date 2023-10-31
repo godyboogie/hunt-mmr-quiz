@@ -17,5 +17,12 @@ const backgroundStyles = computed(() => {
 </template>
 
 <style lang="scss">
-
+.home {
+    min-height: 100%;
+    background-color: $black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    flex-grow: 1;
+}
 </style>
