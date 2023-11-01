@@ -6,6 +6,5 @@
       <!-- <TheHeader></TheHeader> -->
       <NuxtPage />
     </div>
-    <TheFooter></TheFooter>
   </div>
 </template>
