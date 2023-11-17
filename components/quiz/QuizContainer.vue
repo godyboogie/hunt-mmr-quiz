@@ -9,7 +9,7 @@
         flex: 1;
         max-height: 90vh;
         width: calc(100% - 10vh);
-        max-width: 1024px;
+        max-width: 800px;
         border-radius: 20px;
         background-color: rgba($black, 0.5);
         backdrop-filter: blur(10px);
