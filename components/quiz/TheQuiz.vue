@@ -9,9 +9,6 @@ const totalQuestions = ref(props.steps.length)
 const score = ref(0)
 
 const handleNext = (isRight = false) => {
-  console.log(selectedStepIndex.value)
-  console.log(totalQuestions.value - 1)
-
   if (isRight) {
     score.value += 1
   }
