@@ -1,10 +1,8 @@
 <script setup>
 import TheQuiz from "@/components/quiz/TheQuiz.vue"
 
-const img = useImage()
 const backgroundStyles = computed(() => {
-  const imgUrl = img('/background.jpg', { width: 1920 })
-  return { backgroundImage: `url('${imgUrl}')` }
+  return { backgroundImage: 'url(/hunt-star-quiz/images/background.jpg)' }
 })
 
 useHead({
