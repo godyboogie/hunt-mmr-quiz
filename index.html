@@ -2,14 +2,21 @@
 <html >
 <head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/hunt-star-quiz/assets/entry.508e736d.css">
-<link rel="modulepreload" as="script" crossorigin href="/hunt-star-quiz/assets/entry.feb9e8f5.js">
-<link rel="prefetch" as="style" href="/hunt-star-quiz/assets/error-404.7fc72018.css">
-<link rel="prefetch" as="script" crossorigin href="/hunt-star-quiz/assets/error-404.bdc1d643.js">
-<link rel="prefetch" as="script" crossorigin href="/hunt-star-quiz/assets/vue.f36acd1f.eadeb871.js">
-<link rel="prefetch" as="style" href="/hunt-star-quiz/assets/error-500.c5df6088.css">
-<link rel="prefetch" as="script" crossorigin href="/hunt-star-quiz/assets/error-500.f3459e14.js">
-<script type="module" src="/hunt-star-quiz/assets/entry.feb9e8f5.js" crossorigin></script></head>
-<body ><div id="__nuxt"></div><script type="application/json" id="__NUXT_DATA__" data-ssr="false">[{"_errors":1,"serverRendered":2,"data":3,"state":4},{},false,{},{}]</script>
+<title>Hunt: Showdown Skill Test</title>
+<meta name="description" content="Find out how good you are at Hunt: Showdown!">
+<link rel="preload" as="fetch" crossorigin="anonymous" href="/hunt-star-quiz/_payload.json">
+<style>.quizContainer{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);background-color:rgba(0,0,0,.5);border-radius:20px;flex:1;max-height:90vh;max-width:800px;padding:3rem;width:calc(100% - 10vh)}</style>
+<style>.btn_right{background:green}.btn_wrong{background:red}</style>
+<style>.list-enter-active,.list-leave-active{transition:all .5s ease}.list-enter-from,.list-leave-to{opacity:0;transform:translateX(30px)}</style>
+<style>.home{align-items:center;background-color:#000;background-position:bottom;background-repeat:no-repeat;background-size:cover;display:flex;flex-direction:column;flex-grow:1;justify-content:center;min-height:100%}</style>
+<style>*{box-sizing:border-box}html{background:#000;color:#fff;font-family:Crimson Text,"Serif";font-size:62.5%;min-height:100%}body{font-size:1.6em;margin:0;padding:0}#__nuxt{min-height:100vh}#__nuxt,.wrapAll{display:flex;flex-direction:column}.wrapAll{flex:1;min-height:100%}.wrapContent{display:flex;flex-direction:column;flex-grow:1;width:100%}.wrapper{margin:0 auto;max-width:1024px}.text>:first-child{margin-top:0}.text>:last-child{margin-bottom:0}</style>
+<style>@font-face{font-family:Crimson Text;font-style:italic;font-weight:400;src:url(https://fonts.gstatic.com/s/crimsontext/v19/wlpogwHKFkZgtmSR3NB0oRJfajheK_Zt3Q.woff2) format("woff2");unicode-range:u+0102-0103,u+0110-0111,u+0128-0129,u+0168-0169,u+01a0-01a1,u+01af-01b0,u+0300-0301,u+0303-0304,u+0308-0309,u+0323,u+0329,u+1ea0-1ef9,u+20ab}@font-face{font-family:Crimson Text;font-style:italic;font-weight:400;src:url(https://fonts.gstatic.com/s/crimsontext/v19/wlpogwHKFkZgtmSR3NB0oRJfajhfK_Zt3Q.woff2) format("woff2");unicode-range:u+0100-02af,u+0304,u+0308,u+0329,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20cf,u+2113,u+2c60-2c7f,u+a720-a7ff}@font-face{font-family:Crimson Text;font-style:italic;font-weight:400;src:url(https://fonts.gstatic.com/s/crimsontext/v19/wlpogwHKFkZgtmSR3NB0oRJfajhRK_Y.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}@font-face{font-family:Crimson Text;font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/crimsontext/v19/wlp2gwHKFkZgtmSR3NB0oRJfYAhTM_I.woff2) format("woff2");unicode-range:u+0102-0103,u+0110-0111,u+0128-0129,u+0168-0169,u+01a0-01a1,u+01af-01b0,u+0300-0301,u+0303-0304,u+0308-0309,u+0323,u+0329,u+1ea0-1ef9,u+20ab}@font-face{font-family:Crimson Text;font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/crimsontext/v19/wlp2gwHKFkZgtmSR3NB0oRJfYQhTM_I.woff2) format("woff2");unicode-range:u+0100-02af,u+0304,u+0308,u+0329,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20cf,u+2113,u+2c60-2c7f,u+a720-a7ff}@font-face{font-family:Crimson Text;font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/crimsontext/v19/wlp2gwHKFkZgtmSR3NB0oRJfbwhT.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}</style>
+<link rel="modulepreload" as="script" crossorigin href="/hunt-star-quiz/assets/entry.7363f37e.js">
+<link rel="modulepreload" as="script" crossorigin href="/hunt-star-quiz/assets/index.b7001514.js">
+<link rel="modulepreload" as="script" crossorigin href="/hunt-star-quiz/assets/vue.f36acd1f.15f0a047.js">
+<link rel="prefetch" as="script" crossorigin href="/hunt-star-quiz/assets/error-404.567cb6be.js">
+<link rel="prefetch" as="script" crossorigin href="/hunt-star-quiz/assets/error-500.6f27dcdc.js">
+<script type="module" src="/hunt-star-quiz/assets/entry.7363f37e.js" crossorigin></script></head>
+<body ><div id="__nuxt"><div class="wrapAll"><div class="wrapContent"><div class="home" style="background-image:url(&#39;/hunt-star-quiz/_ipx/w_1920/background.jpg&#39;);"><div class="quizContainer"><!--[--><div class="text"><h1>Hunt: Showdown skill test!</h1></div><div class="quiz"><div><!--[--><!--]--><button class="btn">Start!</button></div></div><!--]--></div></div></div></div></div><script type="application/json" id="__NUXT_DATA__" data-ssr="true" data-src="/hunt-star-quiz/_payload.json">[{"state":1,"_errors":3,"serverRendered":5,"path":6,"prerenderedAt":7},["Reactive",2],{},["Reactive",4],{},true,"/",1700270909509]</script>
 <script>window.__NUXT__={};window.__NUXT__.config={public:{},app:{baseURL:"/hunt-star-quiz/",buildAssetsDir:"assets",cdnURL:""}}</script></body>
 </html>
