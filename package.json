@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "deploy": "gh-pages -d dist",
     "@nuxt/devtools": "latest",
     "nuxt": "^3.8.0",
     "sass": "^1.69.5",
@@ -17,6 +18,7 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@nuxt/image": "^1.0.0"
+    "@nuxt/image": "^1.0.0",
+    "gh-pages": "^6.0.0"
   }
 }
