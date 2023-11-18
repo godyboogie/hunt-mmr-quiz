@@ -14,11 +14,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16"
-          cache: 'yarn'
+          cache: 'npm'
       
       - run: |
-          yarn install
-          yarn generate
+          npm install
+          npm run generate
       - name: Init new repo in $BUILD_FOLDER and commit generated files
         run: |
           cd $BUILD_FOLDER
