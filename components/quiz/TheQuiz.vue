@@ -29,7 +29,7 @@ const nextStep = (step = null, delay = false) => {
   setTimeout(() => {
       selectedStepIndex.value = step !== null ? step : selectedStepIndex.value + 1
       selectedStep.value = props.steps[selectedStepIndex.value]
-  }, delay ? 3000 : 0)
+  }, delay ? 1500 : 0)
 }
 
 </script>

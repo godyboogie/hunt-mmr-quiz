@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   app: {
     baseURL: '/hunt-star-quiz/', // baseURL: '/<repository>/'
-    buildAssetsDir: 'assets', // don't use "_" at the begining of the folder name to avoids nojkill conflict
+    buildAssetsDir: 'nuxt', // don't use "_" at the begining of the folder name to avoids nojkill conflict
   },
   css: ['~/assets/css/main.scss', '~/assets/css/fonts.scss'],
   vite: {
@@ -14,7 +14,9 @@ export default defineNuxtConfig({
       }
     }
   },
-  modules: [
-    '@nuxt/image'
-  ]
+  generate:{
+    nojekyll: true, //not working on this version
+  },
+  ssr: true, //When false
+  target: "static", // and static, nuxt generates a SPA
 })
