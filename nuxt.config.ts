@@ -1,6 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
+    head: {
+      link: [{ rel: 'icon', type: 'image/png', href: '/hunt-star-quiz/favicon.ico' }]
+    },
     baseURL: '/hunt-star-quiz/', // baseURL: '/<repository>/'
     buildAssetsDir: 'nuxt', // don't use "_" at the begining of the folder name to avoids nojkill conflict
   },
@@ -14,9 +17,5 @@ export default defineNuxtConfig({
       }
     }
   },
-  generate:{
-    nojekyll: true, //not working on this version
-  },
   ssr: true, //When false
-  target: "static", // and static, nuxt generates a SPA
 })
