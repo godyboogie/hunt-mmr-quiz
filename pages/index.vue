@@ -1,8 +1,12 @@
 <script setup>
 import TheQuiz from "@/components/quiz/TheQuiz.vue"
 
+const img = useImage()
+
 const backgroundStyles = computed(() => {
-  return { backgroundImage: 'url(/hunt-star-quiz/images/background.jpg)' }
+  const imgUrl = img('/images/background.jpg', { width: 1920 })
+  return { backgroundImage: `url('${imgUrl}')` }
+  // return { backgroundImage: 'url(/hunt-star-quiz/images/background.jpg)' }
 })
 
 useHead({
@@ -58,7 +62,7 @@ const quizSteps = [{
     <div class="home" :style="backgroundStyles">
         <QuizContainer>
             <div class="text">
-                <h1>Hunt: Showdown skill test V2!</h1>
+                <h1>Hunt: Showdown skill test!</h1>
             </div>
             <TheQuiz :steps="quizSteps"></TheQuiz>
         </QuizContainer>
