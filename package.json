@@ -8,10 +8,12 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "predeploy": "npm run generate",
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "gh-pages": "^6.0.0",
     "nuxt": "^3.8.0",
     "sass": "^1.69.5",
     "vue": "^3.3.7",
