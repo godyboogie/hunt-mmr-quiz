@@ -1,12 +1,18 @@
 <script setup>
 const props = defineProps({
-  steps: Array
+  steps: Array,
+  results: Array,
+  randomResults: {
+    type: Boolean,
+    default: false
+  }
 })
 
 const selectedStepIndex = ref(-1)
 const selectedStep = ref(props.steps[selectedStepIndex.value])
 const totalQuestions = ref(props.steps.length)
 const score = ref(0)
+const correctResult = ref(null)
 
 const handleNext = (isRight = false) => {
   if (isRight) {
@@ -14,6 +20,7 @@ const handleNext = (isRight = false) => {
   }
   
   if (selectedStepIndex.value === totalQuestions.value - 1) {
+    getResultValue()
     nextStep(-2, true)
   } else if (selectedStepIndex.value === -2) {
     score.value = 0
@@ -32,6 +39,21 @@ const nextStep = (step = null, delay = false) => {
   }, delay ? 1500 : 0)
 }
 
+const getResultValue = () => {
+  if (props.randomResults) {
+    correctResult.value = props.results[Math.floor(Math.random() * props.results.length)]
+  } else {
+    props.results.sort((a,b) => a.value - b.value).reverse().every(elem => {
+      if (score.value <= elem.value) {
+        correctResult.value = elem
+        return true
+      } else {
+        return false
+      }
+    })  
+  }
+}
+
 </script>
 
 <template>
@@ -42,6 +64,8 @@ const nextStep = (step = null, delay = false) => {
     </div>
     <div v-else-if="selectedStepIndex === -2">
       <slot name="end"></slot>
+      <div class="text" v-html="correctResult.text"></div>
+      <NuxtImg v-if="correctResult.image" :src="correctResult.image" />
       <button class="btn" @click="handleNext()">Restart!</button>
     </div>
     <template v-else>
