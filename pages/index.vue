@@ -58,7 +58,7 @@ const quizSteps = [{
     <div class="home" :style="backgroundStyles">
         <QuizContainer>
             <div class="text">
-                <h1>Hunt: Showdown skill test!</h1>
+                <h1>Hunt: Showdown skill test V2!</h1>
             </div>
             <TheQuiz :steps="quizSteps"></TheQuiz>
         </QuizContainer>
