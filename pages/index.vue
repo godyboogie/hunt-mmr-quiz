@@ -56,15 +56,29 @@ const quizSteps = [{
   question: "Voici la question 2",
   imageUrl: "/quiz-bg.jpg"
 }]
+
+const results = [{
+  value: 0,
+  text: "<h3>0, really?</h3>",
+  image: "/images/quiz-bg.jpg"
+},
+{
+  value: 1,
+  text: "<h3>1, not bad.</h3>"
+}]
 </script>
 
 <template>
     <div class="home" :style="backgroundStyles">
         <QuizContainer>
-            <div class="text">
+            <div class="text text_centered">
                 <h1>Hunt: Showdown skill test!</h1>
             </div>
-            <TheQuiz :steps="quizSteps"></TheQuiz>
+            <TheQuiz :steps="quizSteps" :results="results" :randomResults="true">
+              <template #start>
+                <h2>In this quiz, you will find out your true Hunt: Showdown rating.</h2>
+              </template>
+            </TheQuiz>
         </QuizContainer>
     </div>
 </template>
