@@ -65,7 +65,7 @@ const getResultValue = () => {
     <div v-else-if="selectedStepIndex === -2">
       <slot name="end"></slot>
       <div class="text" v-html="correctResult.text"></div>
-      <NuxtImg v-if="correctResult.image" :src="correctResult.image" />
+      <NuxtImg v-if="correctResult.image" :src="correctResult.image" :width="700"/>
       <button class="btn" @click="handleNext()">Restart!</button>
     </div>
     <template v-else>
