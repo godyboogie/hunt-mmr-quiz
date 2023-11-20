@@ -6,7 +6,6 @@ const img = useImage()
 const backgroundStyles = computed(() => {
   const imgUrl = img('/images/background.jpg', { width: 1920 })
   return { backgroundImage: `url('${imgUrl}')` }
-  // return { backgroundImage: 'url(/hunt-star-quiz/images/background.jpg)' }
 })
 
 useHead({
@@ -59,12 +58,13 @@ const quizSteps = [{
 
 const results = [{
   value: 0,
-  text: "<h3>0, really?</h3>",
-  image: "/images/quiz-bg.jpg"
+  text: "<h3>1 star player!</h3><p>Do not worry, you will be better... someday!</p>",
+  image: "/images/results/1-star.jpg"
 },
 {
   value: 1,
-  text: "<h3>1, not bad.</h3>"
+  text: "<h3>2 star player</h3><p>You think you are good? Think again!</p>",
+  image: "/images/results/2-star.jpg"
 }]
 </script>
 

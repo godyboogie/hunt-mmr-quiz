@@ -11,8 +11,8 @@
         width: calc(100% - 10vh);
         max-width: 800px;
         border-radius: 20px;
-        background-color: rgba($black, 0.5);
-        backdrop-filter: blur(10px);
+        background-color: rgba($black, 0.6);
+        backdrop-filter: blur(8px);
         padding: 3rem;
     }
 </style>

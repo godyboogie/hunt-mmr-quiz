@@ -30,13 +30,3 @@ const handleClick = (option) => {
     <button v-for="option in options" :key="option.value" :class="['btn', optionsObject[option.value]]" :disabled="disabledAnswers" @click="handleClick(option)">{{ option.name }}</button>
   </div>
 </template>
-
-<style lang="scss">
-.btn_right {
-  background: green;
-}
-
-.btn_wrong {
-  background: red;
-}
-</style>
