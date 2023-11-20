@@ -13,6 +13,7 @@ const selectedStep = ref(props.steps[selectedStepIndex.value])
 const totalQuestions = ref(props.steps.length)
 const score = ref(0)
 const correctResult = ref(null)
+const resultImages = ref({})
 
 const handleNext = (isRight = false) => {
   if (isRight) {
@@ -54,6 +55,13 @@ const getResultValue = () => {
   }
 }
 
+// Load images
+const img = useImage()
+props.results.filter(elem => elem.image).forEach(result => {
+  const testImage = img(result.image, {width: 700})
+  resultImages.value[result.image] = testImage
+})
+
 </script>
 
 <template>
@@ -65,7 +73,7 @@ const getResultValue = () => {
     <div v-else-if="selectedStepIndex === -2">
       <slot name="end"></slot>
       <div class="text" v-html="correctResult.text"></div>
-      <NuxtImg v-if="correctResult.image" :src="correctResult.image" :width="700"/>
+      <img v-if="correctResult.image" :src="resultImages[correctResult.image]"  />
       <button class="btn" @click="handleNext()">Restart!</button>
     </div>
     <template v-else>

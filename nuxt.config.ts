@@ -1,3 +1,5 @@
+import { Static } from "vue";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
@@ -21,4 +23,5 @@ export default defineNuxtConfig({
     }
   },
   ssr: true, //When false
+  target: 'static'
 })
