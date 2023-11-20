@@ -4,9 +4,9 @@ import { Static } from "vue";
 export default defineNuxtConfig({
   app: {
     head: {
-      link: [{ rel: 'icon', type: 'image/png', href: '/hunt-star-quiz/favicon.ico' }]
+      link: [{ rel: 'icon', type: 'image/png', href: '/hunt-mmr-quiz/favicon.ico' }]
     },
-    baseURL: '/hunt-star-quiz/', // baseURL: '/<repository>/'
+    baseURL: '/hunt-mmr-quiz/', // baseURL: '/<repository>/'
     buildAssetsDir: 'nuxt', // don't use "_" at the begining of the folder name to avoids nojkill conflict
   },
   modules: [
@@ -23,5 +23,4 @@ export default defineNuxtConfig({
     }
   },
   ssr: true, //When false
-  target: 'static'
 })

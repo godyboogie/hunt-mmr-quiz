@@ -52,3 +52,45 @@ body {
         }
     }
 }
+
+.btn {
+  background: rgba($lightGrey, 0.85);
+  border: 1px solid $lightGrey;
+  font-family: $crimson;
+  color: $darkGrey;
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding: 0.5em 1.5em;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color $t1, border-color $t1, color $t1;
+
+  &:hover {
+    background: $lightGrey;
+    color: $black;
+  }
+
+  &_right {
+    color: $white;
+    background: $green;
+    border-color: $green;
+    pointer-events: none;
+
+    &:hover {
+      color: $white;
+      background: $green;
+    }
+  }
+  
+  &_wrong {
+    color: $white;
+    background: $red;
+    border-color: $red;
+    pointer-events: none;
+
+    &:hover {
+      color: $white;
+      background: $red;
+    }
+  }
+}

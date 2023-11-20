@@ -35,8 +35,13 @@ const handleNext = (isRight = false) => {
 
 const nextStep = (step = null, delay = false) => {
   setTimeout(() => {
-      selectedStepIndex.value = step !== null ? step : selectedStepIndex.value + 1
+    const tempIndex = step !== null ? step : selectedStepIndex.value + 1;
+    selectedStepIndex.value = -10
+    selectedStep.value = null
+    setTimeout(() => {
+      selectedStepIndex.value = tempIndex
       selectedStep.value = props.steps[selectedStepIndex.value]
+    }, 500)
   }, delay ? 1500 : 0)
 }
 
@@ -66,20 +71,23 @@ props.results.filter(elem => elem.image).forEach(result => {
 
 <template>
   <div class="quiz">
-    <div v-if="selectedStepIndex === -1">
-      <slot name="start"></slot>
-      <button class="btn" @click="handleNext()">Start!</button>
-    </div>
-    <div v-else-if="selectedStepIndex === -2">
-      <slot name="end"></slot>
-      <div class="text" v-html="correctResult.text"></div>
-      <img v-if="correctResult.image" :src="resultImages[correctResult.image]"  />
-      <button class="btn" @click="handleNext()">Restart!</button>
-    </div>
-    <template v-else>
-      {{ score }}/{{ totalQuestions }}
-      <QuizStep v-if="selectedStep" :key="selectedStepIndex" :options="selectedStep.options" :name="selectedStep.name" :question="selectedStep.question" :imageUrl="selectedStep.imageUrl" @next-question="handleNext"></QuizStep>
-    </template>
+    <Transition name="list">
+      <div v-if="selectedStepIndex === -1">
+        <slot name="start"></slot>
+        <button class="btn" @click="handleNext()">Start!</button>
+      </div>
+      <div v-else-if="selectedStepIndex === -2">
+        <slot name="end"></slot>
+        <div class="text" v-html="correctResult.text"></div>
+        <img v-if="correctResult.image" :src="resultImages[correctResult.image]"  />
+        <button class="btn" @click="handleNext()">Restart!</button>
+      </div>
+      <template v-else>
+        <Transition name="list">
+          <QuizStep v-if="selectedStep" :key="selectedStepIndex" :options="selectedStep.options" :name="selectedStep.name" :question="selectedStep.question" :imageUrl="selectedStep.imageUrl" @next-question="handleNext"></QuizStep>
+        </Transition>
+      </template>
+    </Transition>
   </div>
 </template>
 
@@ -91,6 +99,5 @@ props.results.filter(elem => elem.image).forEach(result => {
 .list-enter-from,
 .list-leave-to {
   opacity: 0;
-  transform: translateX(30px);
 }
 </style>
