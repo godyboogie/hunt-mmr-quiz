@@ -17,43 +17,127 @@ useHead({
 
 const quizSteps = [{
   options: [{
-    value: "test1",
-    name: "Test 1",
-    isRight: true
-  },
-  {
-    value: "test2",
-    name: "Test 2",
+    value: "winfield-m1873",
+    name: "Winfield M1873",
     isRight: false
   },
   {
-    value: "test3",
-    name: "Test 3",
+    value: "winfield-m1873-aperture",
+    name: "Winfield M1873 Aperture",
+    isRight: true
+  },
+  {
+    value: "winfield-m1876-centennial",
+    name: "Winfield M1876 Centennial",
+    isRight: false
+  },{
+    value: "winfield-m1873-swift",
+    name: "Winfield M1873 Swift",
     isRight: false
   }],
   name: "question1",
-  question: "Voici la question 1",
-  imageUrl: "/quiz-bg.jpg"
+  question: "What is the name of this weapon?",
+  imageUrl: "/images/questions/question-1.webp"
 },
 {
   options: [{
-    value: "test1",
-    name: "Test 1",
+    value: "146",
+    name: "146",
     isRight: false
   },
   {
-    value: "test2",
-    name: "Test 2",
+    value: "135",
+    name: "135",
+    isRight: false
+  },
+  {
+    value: "132",
+    name: "132",
     isRight: true
   },
   {
-    value: "test3",
-    name: "Test 3",
+    value: "129",
+    name: "129",
     isRight: false
   }],
   name: "question2",
-  question: "Voici la question 2",
-  imageUrl: "/quiz-bg.jpg"
+  question: "How much damage does the Lebel 1886 do?",
+  imageUrl: "/images/questions/question-2.webp"
+},
+{
+  options: [{
+    value: "north-star",
+    name: "North Star",
+    isRight: false
+  },
+  {
+    value: "zhong-kui",
+    name: "Zhong Kui",
+    isRight: false
+  },
+  {
+    value: "the-spirited",
+    name: "The Spirited",
+    isRight: false
+  },
+  {
+    value: "the-sovereign",
+    name: "The Sovereign",
+    isRight: true
+  }],
+  name: "question3",
+  question: "What is the name of this legendary hunter?",
+  imageUrl: "/images/questions/question-3.png"
+},
+{
+  options: [{
+    value: "iron-sharpshooter",
+    name: "Iron Sharpshooter",
+    isRight: true
+  },
+  {
+    value: "iron-repeater",
+    name: "Iron Repeater",
+    isRight: false
+  },
+  {
+    value: "iron-devastator",
+    name: "Iron Devastator",
+    isRight: false
+  },
+  {
+    value: "steady-aim",
+    name: "Steady Aim",
+    isRight: false
+  }],
+  name: "question4",
+  question: "What is the name of this trait?",
+  imageUrl: "/images/questions/question-4.webp"
+},
+{
+  options: [{
+    value: "70",
+    name: "Prestige 70",
+    isRight: false
+  },
+  {
+    value: "80",
+    name: "Prestige 80",
+    isRight: true
+  },
+  {
+    value: "90",
+    name: "Prestige 90",
+    isRight: false
+  },
+  {
+    value: "100",
+    name: "Prestige 100",
+    isRight: false
+  }],
+  name: "question5",
+  question: "What is the prestige level of this badge?",
+  imageUrl: "/images/questions/question-5.webp"
 }]
 
 const results = [{

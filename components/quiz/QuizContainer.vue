@@ -14,5 +14,6 @@
         background-color: rgba($black, 0.6);
         backdrop-filter: blur(8px);
         padding: 3rem;
+        overflow: auto;
     }
 </style>
