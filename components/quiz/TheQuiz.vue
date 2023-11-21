@@ -5,6 +5,14 @@ const props = defineProps({
   randomResults: {
     type: Boolean,
     default: false
+  },
+  startText: {
+    type: String,
+    default: "Start"
+  },
+  restartText: {
+    type: String,
+    default: "Restart"
   }
 })
 
@@ -16,20 +24,20 @@ const correctResult = ref(null)
 const resultImages = ref({})
 
 const handleNext = (isRight = false) => {
-  if (isRight) {
+  if (isRight && !props.randomResults) {
     score.value += 1
   }
   
   if (selectedStepIndex.value === totalQuestions.value - 1) {
     getResultValue()
-    nextStep(-2, true)
+    nextStep(-2, props.randomResults ? false : true)
   } else if (selectedStepIndex.value === -2) {
     score.value = 0
     nextStep(0)
   } else if (selectedStepIndex.value === -1) {
     nextStep(0)
   } else {
-    nextStep(null, true)
+    nextStep(null, props.randomResults ? false : true)
   }
 }
 
@@ -41,7 +49,7 @@ const nextStep = (step = null, delay = false) => {
     setTimeout(() => {
       selectedStepIndex.value = tempIndex
       selectedStep.value = props.steps[selectedStepIndex.value]
-    }, 500)
+    }, 510)
   }, delay ? 1500 : 0)
 }
 
@@ -63,7 +71,7 @@ const getResultValue = () => {
 // Load images
 const img = useImage()
 props.results.filter(elem => elem.image).forEach(result => {
-  const testImage = img(result.image, {width: 700})
+  const testImage = img(result.image, {width: 500})
   resultImages.value[result.image] = testImage
 })
 
@@ -73,18 +81,26 @@ props.results.filter(elem => elem.image).forEach(result => {
   <div class="quiz">
     <Transition name="list">
       <div v-if="selectedStepIndex === -1">
-        <slot name="start"></slot>
-        <button class="btn" @click="handleNext()">Start!</button>
+        <div class="quizContent text">
+          <slot name="start"></slot>
+        </div>
+        <div class="btnContainer">
+          <button class="btn" @click="handleNext()">{{ startText }}</button>
+        </div>
       </div>
       <div v-else-if="selectedStepIndex === -2">
-        <slot name="end"></slot>
-        <div class="text" v-html="correctResult.text"></div>
+        <div class="quizContent text">
+          <slot name="end"></slot>
+          <div class="text" v-html="correctResult.text"></div>
+        </div>
         <img v-if="correctResult.image" :src="resultImages[correctResult.image]"  />
-        <button class="btn" @click="handleNext()">Restart!</button>
+        <div class="btnContainer">
+          <button class="btn" @click="handleNext()">{{ restartText }}</button>
+        </div>
       </div>
       <template v-else>
         <Transition name="list">
-          <QuizStep v-if="selectedStep" :key="selectedStepIndex" :options="selectedStep.options" :name="selectedStep.name" :question="selectedStep.question" :imageUrl="selectedStep.imageUrl" @next-question="handleNext"></QuizStep>
+          <QuizStep v-if="selectedStep" :key="selectedStepIndex" :options="selectedStep.options" :name="selectedStep.name" :question="selectedStep.question" :imageUrl="selectedStep.imageUrl" @next-question="handleNext" :validate="!randomResults"></QuizStep>
         </Transition>
       </template>
     </Transition>

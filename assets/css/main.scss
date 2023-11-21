@@ -94,3 +94,44 @@ body {
     }
   }
 }
+
+.btnContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  
+  &:not(:first-child) {
+    margin-top: 2rem;
+  }
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.quizContent {
+  margin: 2rem 0;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba($lightGrey, 0.5);
+  transition: background-color $t1;
+  border-radius: 99px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba($lightGrey, 0.75);
+}

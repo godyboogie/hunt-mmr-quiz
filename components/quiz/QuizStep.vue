@@ -4,7 +4,11 @@ const props = defineProps({
   name: String,
   question: String,
   imageUrl: String,
-  correctOption: String
+  correctOption: String,
+  validate: {
+    type: Boolean,
+    default: true
+  }
 })
 
 const emit = defineEmits(['nextQuestion'])
@@ -13,20 +17,48 @@ const optionsObject = ref(Object.assign({}, ...props.options.map((x) => ({[x.val
 const disabledAnswers = ref(false)
 
 const handleClick = (option) => {
-  disabledAnswers.value = true;
-  optionsObject.value[option.value] = option.isRight ? "btn_right" : "btn_wrong"
+  if (props.validate) {
+    disabledAnswers.value = true;
+    optionsObject.value[option.value] = option.isRight ? "btn_right" : "btn_wrong"
 
-  if (option.isRight) {
-    emit("nextQuestion", true)
+    if (option.isRight) {
+      emit("nextQuestion", true)
+    } else {
+      emit("nextQuestion", false)
+    }
   } else {
-    emit("nextQuestion", false)
+    emit("nextQuestion")
   }
 }
+
+const img = useImage()
+const imgUrl = computed(() => {
+  const imgUrl = img(props.imageUrl, { width: 500 })
+  return imgUrl
+})
 </script>
 
 <template>
   <div class="step">
-    <h2>{{ question }}</h2>
-    <button v-for="option in options" :key="option.value" :class="['btn', optionsObject[option.value]]" :disabled="disabledAnswers" @click="handleClick(option)">{{ option.name }}</button>
+    <div class="quizContent">
+      <div class="text">
+        <h2>{{ question }}</h2>
+      </div>
+
+      <img class="questionImage" :src="imgUrl" />
+    </div>
+    <div class="btnContainer">
+      <button v-for="option in options" :key="option.value" :class="['btn', optionsObject[option.value]]" :disabled="disabledAnswers" @click="handleClick(option)">{{ option.name }}</button>
+    </div>
   </div>
 </template>
+
+<style lang="scss">
+.questionImage {
+  margin: 0 auto;
+
+  &:not(:first-child) {
+    margin-top: 2rem;
+  }
+}
+</style>
