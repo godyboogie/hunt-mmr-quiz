@@ -30,12 +30,6 @@ const handleClick = (option) => {
     emit("nextQuestion")
   }
 }
-
-const img = useImage()
-const imgUrl = computed(() => {
-  const imgUrl = img(props.imageUrl, { width: 500 })
-  return imgUrl
-})
 </script>
 
 <template>
@@ -45,7 +39,7 @@ const imgUrl = computed(() => {
         <h2>{{ question }}</h2>
       </div>
 
-      <img class="questionImage" :src="imgUrl" />
+      <img class="questionImage" :src="imageUrl" />
     </div>
     <div class="btnContainer">
       <button v-for="option in options" :key="option.value" :class="['btn', optionsObject[option.value]]" :disabled="disabledAnswers" @click="handleClick(option)">{{ option.name }}</button>

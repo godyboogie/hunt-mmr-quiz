@@ -22,6 +22,7 @@ const totalQuestions = ref(props.steps.length)
 const score = ref(0)
 const correctResult = ref(null)
 const resultImages = ref({})
+const questionsImages = ref({})
 
 const handleNext = (isRight = false) => {
   if (isRight && !props.randomResults) {
@@ -71,8 +72,13 @@ const getResultValue = () => {
 // Load images
 const img = useImage()
 props.results.filter(elem => elem.image).forEach(result => {
-  const testImage = img(result.image, {width: 500})
-  resultImages.value[result.image] = testImage
+  const theImgUrl = img(result.image, {width: 500})
+  resultImages.value[result.image] = theImgUrl
+})
+
+props.steps.filter(elem => elem.imageUrl).forEach(image => {
+  const theImgUrl = img(image.imageUrl, {width: 500})
+  questionsImages.value[image.imageUrl] = theImgUrl
 })
 
 </script>
@@ -100,7 +106,7 @@ props.results.filter(elem => elem.image).forEach(result => {
       </div>
       <template v-else>
         <Transition name="list">
-          <QuizStep v-if="selectedStep" :key="selectedStepIndex" :options="selectedStep.options" :name="selectedStep.name" :question="selectedStep.question" :imageUrl="selectedStep.imageUrl" @next-question="handleNext" :validate="!randomResults"></QuizStep>
+          <QuizStep v-if="selectedStep" :key="selectedStepIndex" :options="selectedStep.options" :name="selectedStep.name" :question="selectedStep.question" :imageUrl="questionsImages[selectedStep.imageUrl]" @next-question="handleNext" :validate="!randomResults"></QuizStep>
         </Transition>
       </template>
     </Transition>
