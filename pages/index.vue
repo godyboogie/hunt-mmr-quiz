@@ -138,6 +138,131 @@ const quizSteps = [{
   name: "question5",
   question: "What is the prestige level of this badge?",
   imageUrl: "/images/questions/question-5.webp"
+},
+{
+  options: [{
+    value: "scupper",
+    name: "Scupper Lake",
+    isRight: false
+  },
+  {
+    value: "lumber",
+    name: "C&A Lumber",
+    isRight: false
+  },
+  {
+    value: "Reynard",
+    name: "Reynard Mill & Lumber",
+    isRight: false
+  },
+  {
+    value: "catfish",
+    name: "Catfish Grove",
+    isRight: true
+  }],
+  name: "question6",
+  question: "What is the name of this compound?",
+  imageUrl: "/images/questions/question-6.webp"
+},
+{
+  options: [{
+    value: "pistol",
+    name: "Caldwell Conversion Pistol",
+    isRight: true
+  },
+  {
+    value: "uppercut",
+    name: "Caldwell Conversion Uppercut",
+    isRight: false
+  },
+  {
+    value: "rival",
+    name: "Caldwell Rival 78",
+    isRight: false
+  },
+  {
+    value: "pax",
+    name: "Caldwell Pax",
+    isRight: false
+  }],
+  name: "question7",
+  question: "What is the name of this weapon?",
+  imageUrl: "/images/questions/question-7.webp"
+},
+{
+  options: [{
+    value: "compact",
+    name: "Compact",
+    isRight: false
+  },
+  {
+    value: "medium",
+    name: "Medium",
+    isRight: true
+  },
+  {
+    value: "long",
+    name: "Long",
+    isRight: false
+  },
+  {
+    value: "special",
+    name: "Special",
+    isRight: false
+  }],
+  name: "question8",
+  question: "For wich type of ammo is this box for?",
+  imageUrl: "/images/questions/question-8.webp"
+},
+{
+  options: [{
+    value: "82",
+    name: "82",
+    isRight: false
+  },
+  {
+    value: "90",
+    name: "90",
+    isRight: false
+  },
+  {
+    value: "91",
+    name: "91",
+    isRight: true
+  },
+  {
+    value: "97",
+    name: "97",
+    isRight: false
+  }],
+  name: "question9",
+  question: "How much damage does the Nagant M1895 Silencer do?",
+  imageUrl: "/images/questions/question-9.webp"
+},
+{
+  options: [{
+    value: "pitchfork",
+    name: "Pitchfork Girl",
+    isRight: false
+  },
+  {
+    value: "shotgun",
+    name: "Shotgun Guy",
+    isRight: false
+  },
+  {
+    value: "trade",
+    name: "It's a trade",
+    isRight: true
+  },
+  {
+    value: "nobody",
+    name: "Nobody",
+    isRight: false
+  }],
+  name: "question9",
+  question: "Who dies?",
+  imageUrl: "/images/questions/question-10.jpg"
 }]
 
 const results = [{
@@ -158,7 +283,7 @@ const results = [{
             <div class="text text_centered">
                 <h1>Hunt: Showdown skill test!</h1>
             </div>
-            <TheQuiz :steps="quizSteps" :results="results" :randomResults="true">
+            <TheQuiz :steps="quizSteps" :results="results" :randomResults="true" startText="Start the quiz!" restartText="Retake the quiz!">
               <template #start>
                 <h2>In this quiz, you will find out your true Hunt: Showdown rating.</h2>
               </template>

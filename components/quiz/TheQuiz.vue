@@ -6,6 +6,14 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+  startText: {
+    type: String,
+    default: "Start"
+  },
+  restartText: {
+    type: String,
+    default: "Restart"
+  }
 })
 
 const selectedStepIndex = ref(-1)
@@ -77,7 +85,7 @@ props.results.filter(elem => elem.image).forEach(result => {
           <slot name="start"></slot>
         </div>
         <div class="btnContainer">
-          <button class="btn" @click="handleNext()">Start!</button>
+          <button class="btn" @click="handleNext()">{{ startText }}</button>
         </div>
       </div>
       <div v-else-if="selectedStepIndex === -2">
@@ -87,7 +95,7 @@ props.results.filter(elem => elem.image).forEach(result => {
         </div>
         <img v-if="correctResult.image" :src="resultImages[correctResult.image]"  />
         <div class="btnContainer">
-          <button class="btn" @click="handleNext()">Restart!</button>
+          <button class="btn" @click="handleNext()">{{ restartText }}</button>
         </div>
       </div>
       <template v-else>
