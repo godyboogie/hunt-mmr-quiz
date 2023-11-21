@@ -286,6 +286,7 @@ const results = [{
             <TheQuiz :steps="quizSteps" :results="results" :randomResults="true" startText="Start the quiz!" restartText="Retake the quiz!">
               <template #start>
                 <h2>In this quiz, you will find out your true Hunt: Showdown rating.</h2>
+                <p>Answer these 10 questions to test your knowledge!</p>
               </template>
             </TheQuiz>
         </QuizContainer>
